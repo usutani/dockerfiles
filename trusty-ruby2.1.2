@@ -35,3 +35,8 @@ RUN ruby-build 2.1.2 /usr/local
 # Install bundler
 RUN gem update --system
 RUN gem install bundler --no-rdoc --no-ri
+
+# Add user
+RUN useradd --create-home -s /bin/bash ubuntu ;\
+adduser ubuntu sudo ;\
+echo "ubuntu:ubuntu" | chpasswd;
